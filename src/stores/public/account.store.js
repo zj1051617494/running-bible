@@ -9,7 +9,7 @@ const state = {
 }
 
 const getters = {
-  accountInfo(state) {
+  getAccountInfo(state) {
     return state.accountInfo
   }
 }
@@ -19,4 +19,10 @@ const mutations = {
     state.accountInfo.logined = true;
     state.accountInfo.role = payload.role;
   }
+}
+export default {
+  namespaced: true,
+  state,
+  getters,
+  mutations,
 }

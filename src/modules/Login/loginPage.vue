@@ -20,6 +20,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from"vuex";
 export default {
   data() {
     return {
@@ -34,6 +35,14 @@ export default {
     login() {
       console.log("登录")
     }
+  },
+  computed:{
+    ...mapGetters({
+      accountInfo:"account/getAccountInfo"
+    })
+  },  
+  mounted() {
+    console.log(this.accountInfo)
   }
 }
 </script>
