@@ -1,4 +1,5 @@
 import VueRouter from "vue-router";
+import Layout from "@/layout"
 
 const routes = [
   {
@@ -8,7 +9,12 @@ const routes = [
   },
   {
     path: "/",
-    redirect:"/login"
+    redirect:"/login" 
+  },
+  {
+    path: "/",
+    component: Layout,
+    
   }
 ]
 

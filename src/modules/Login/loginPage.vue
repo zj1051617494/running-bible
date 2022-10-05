@@ -6,16 +6,25 @@
       </el-row>
       <el-form v-model="form">
         <el-row class='form-row'>
-          <el-input v-model="form.account" placeholder="请输入账号" style="width:12vw; margin: 15px"></el-input>
+          <el-input v-model="form.account" placeholder="请输入账号" class="form-input"></el-input>
         </el-row>
         <el-row class="form-row">
-          <el-input v-model="form.password" placeholder="请输入密码" type="password" style="width: 12vw; margin: 15px"></el-input>
+          <el-input v-model="form.password" placeholder="请输入密码" type="password" class="form-input"></el-input>
         </el-row>
         <el-row class="form-row" style="margin-top: 15px">
-            <el-button type="primary" style="display: inline">登录</el-button>
-            <el-button type="info" style="display: inline">注册</el-button>
+            <el-button type="primary" style="display: inline" @click="login">登录</el-button>
+            <el-button type="info" style="display: inline" @click="signUp">注册</el-button>
         </el-row>
       </el-form>
+      <el-dialog  :visible.sync="dialogVisible" width="30%" :modal="false" top="20px" custom-class="dialog">
+        <span>请联系管理员:(微信)</span>
+        <span id="wechat">xtmoon116</span>
+        <el-button @click="copy">点我复制</el-button>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+        </span>
+      </el-dialog>
     </div>
   </div>
 </template>
@@ -28,13 +37,18 @@ export default {
       form:{
         account: "",
         password: ""
-      }
+      },
+      dialogVisible:false
     }
   },
   methods:{
     login() {
       console.log("登录")
-    }
+    }, 
+    signUp() {
+      this.dialogVisible = true
+    },
+    copy(){}
   },
   computed:{
     ...mapGetters({
@@ -42,7 +56,6 @@ export default {
     })
   },  
   mounted() {
-    console.log(this.accountInfo)
   }
 }
 </script>
@@ -68,5 +81,29 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.form-input {
+  width: 12vw;
+  margin: 15px
+}
+
+/* 对手机端做适配 */
+@media screen and (max-width : 425px) {
+  .login-wrap {
+    width: 100vw;
+    height: 800px;
+    background: url("../../assets/img/bg.jpg") center no-repeat;
+    background-size: auto;
+  }
+  .login-form {
+    width:88vw;
+    height: 35vh;
+  }
+  .form-input {
+    width: 60vw;
+  }
+  .dialog {
+    width: 80vw;
+  }
 }
 </style>
