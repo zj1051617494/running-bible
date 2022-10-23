@@ -29,6 +29,8 @@
   </div>
 </template>
 <script>
+import { setLocalStorage } from "@/common/localStorage.js";
+import request from "@/common/request.js";
 import { mapGetters } from"vuex";
 export default {
   data() {
@@ -44,6 +46,20 @@ export default {
   methods:{
     login() {
       console.log("登录")
+      request.request("/run-bible-login/login",{ userName: this.form.account, password: this.form.password }).then((res) => {
+
+        console.log(res)
+        if(res.success) {
+          setLocalStorage("accountToken", res.data);
+          this.$store.commit("account/initAccount",{ account: this.form.account })
+          console.log(this.accountInfo)
+          this.$router.push("/question")
+        } else {
+          this.$message.warning(res.message)
+        }
+        
+      });
+      
     }, 
     signUp() {
       this.dialogVisible = true

@@ -1,8 +1,7 @@
 const state = {
   accountInfo: {
-    accountId: "",
+    account: "",
     logined: false,
-    role: "",
   },
   view: "user"// user or admin 
   
@@ -15,9 +14,8 @@ const getters = {
 }
 const mutations = {
   initAccount(state,payload) {
-    state.accountInfo.accountId = payload.accountId;
+    state.accountInfo.account = payload.account;
     state.accountInfo.logined = true;
-    state.accountInfo.role = payload.role;
   }
 }
 export default {

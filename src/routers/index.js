@@ -5,16 +5,30 @@ const routes = [
   {
     path: "/login",
     name: "login",
-    component:()=> import("@/modules/Login/loginPage.vue")
+    component:()=> import("@/modules/Login/loginPage.vue"),
+    meta: {
+      keepAlive: false
+    }
   },
   {
     path: "/",
-    redirect:"/login" 
+    redirect:"/home" 
   },
   {
-    path: "/",
-    component: Layout,
-    
+    path: "/home",
+    name:"home",
+    component: ()=> import("@/modules/Main/app.vue"),
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
+    path:"/question",
+    name:"question",
+    component: ()=> import("@/modules/QuestionSearch/questionSearch.vue"),
+    meta: {
+      keepAlive: true
+    }
   }
 ]
 
