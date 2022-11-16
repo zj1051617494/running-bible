@@ -1,41 +1,56 @@
 import VueRouter from "vue-router";
-import Layout from "@/layout"
+import Layout from "@/layout";
 
 const routes = [
   {
     path: "/login",
     name: "login",
-    component:()=> import("@/modules/Login/loginPage.vue"),
+    component: () => import("@/modules/Login/loginPage.vue"),
     meta: {
-      keepAlive: false
-    }
+      keepAlive: false,
+    },
   },
   {
     path: "/",
-    redirect:"/home" 
+    redirect: "/home",
   },
   {
     path: "/home",
-    name:"home",
-    component: ()=> import("@/modules/Main/app.vue"),
+    name: "home",
+    component: () => import("@/modules/Main/app.vue"),
     meta: {
-      keepAlive: true
-    }
+      keepAlive: true,
+    },
   },
   {
-    path:"/question",
-    name:"question",
-    component: ()=> import("@/modules/QuestionSearch/questionSearch.vue"),
+    path: "/question",
+    name: "question",
+    component: () => import("@/modules/QuestionSearch/questionSearch.vue"),
     meta: {
-      keepAlive: true
-    }
-  }
-]
-
+      keepAlive: true,
+    },
+  },
+  {
+    path: "/pics",
+    name: "pics",
+    component: () => import("@/modules/pictures/pics.vue"),
+    meta: {
+      keepAlive: true,
+    },
+  },
+  {
+    path: "/calc",
+    name: "calc",
+    component: () => import("@/modules/calculate/calc.vue"),
+    meta: {
+      keepAlive: true,
+    },
+  },
+];
 
 const router = new VueRouter({
   routes,
-  mode: "history"
-})
+  mode: "hash",
+});
 
-export default router
+export default router;

@@ -3,15 +3,18 @@ import { getLocalStorage } from "@/common/localStorage.js";
 import { endsWith } from "lodash";
 axios.defaults.baseURL = "/api";
 axios.defaults.headers.post["Content-Type"] =
-  "application/x-www-form-urlencoded";
+  "application/json";
 
 export default {
-  request(url, params) {
+  request(url, data,params) {
     let p = new Promise((resolve, reject) => {
       axios({
         method: "post",
         url,
         data: {
+          ...data,
+        },
+        params:{
           ...params,
         },
         headers: endsWith(url, "login")
