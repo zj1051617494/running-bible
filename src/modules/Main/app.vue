@@ -11,6 +11,8 @@
 </template>
 <script>
 import layout from "@/layout/index.vue";
+import { setLocalStorage } from "@/common/localStorage.js";
+import request from "@/common/request.js";
 export default {
   components: {
     layout,

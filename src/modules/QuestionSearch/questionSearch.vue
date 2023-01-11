@@ -48,6 +48,10 @@ export default {
       request
         .request("/rb-question-bank/query-qb-list", this.form)
         .then((res) => {
+          if(res.code!==200) {
+            this.$message.warning("会话过期，请重新登录！")
+            this.$router.push("login")
+          }
           console.log(res);
           if (isEmpty(res.data)) {
             this.emptyRes = true;

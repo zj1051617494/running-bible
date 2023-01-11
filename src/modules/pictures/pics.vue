@@ -7,7 +7,6 @@
           <el-select
             v-model="form.temp"
             class="select-input"
-            @change="queryImg"
             :disabled="loading"
           >
             <el-option
@@ -22,14 +21,82 @@
       </el-form>
     </el-row>
     <el-divider content-position="left">查询结果</el-divider>
-    <div class="img-container" v-loading="loading">
+    <div class="img-container" v-if="form.temp ==='35'">
       <el-row
-        v-for="(item, i) in imgSrcList"
-        :key="i"
         style="margin-bottom: 15px"
       >
-        <span class="img-name">{{ item.img_name }}</span>：
-        <img :src="item.img_src" alt="" style="width: 100%" />
+        <span class="img-name">发电机本体温度-35度</span>：
+        <img src="../../assets/img/发电机本体温度/发电机本体温度-35度.png" alt="" style="width: 100%" />
+      </el-row>
+      <el-row
+        style="margin-bottom: 15px"
+      >
+        <span class="img-name">发电机本体温度-35度</span>：
+        <img src="../../assets/img/发电组温度/发变组-35度.png" alt="" style="width: 100%" />
+      </el-row>
+      <el-row
+        style="margin-bottom: 15px"
+      >
+        <span class="img-name">发电机本体温度-35度</span>：
+        <img src="../../assets/img/中压给水泵本体温度/中压给水泵--35度.png" alt="" style="width: 100%" />
+      </el-row>
+      <el-row
+        style="margin-bottom: 15px"
+      >
+        <span class="img-name">发电机本体温度-35度</span>：
+        <img src="../../assets/img/高压给水泵本体温度/高压给水泵--35度.png" alt="" style="width: 100%" />
+      </el-row>
+    </div>
+    <div class="img-container" v-if="form.temp ==='40'">
+      <el-row
+        style="margin-bottom: 15px"
+      >
+        <span class="img-name">发电机本体温度-40度</span>：
+        <img src="../../assets/img/发电机本体温度/发电机本体温度-40度.png" alt="" style="width: 100%" />
+      </el-row>
+      <el-row
+        style="margin-bottom: 15px"
+      >
+        <span class="img-name">发电机本体温度-40度</span>：
+        <img src="../../assets/img/发电组温度/发变组-40度.png" alt="" style="width: 100%" />
+      </el-row>
+      <el-row
+        style="margin-bottom: 15px"
+      >
+        <span class="img-name">发电机本体温度-40度</span>：
+        <img src="../../assets/img/中压给水泵本体温度/中压给水泵--40度.png" alt="" style="width: 100%" />
+      </el-row>
+      <el-row
+        style="margin-bottom: 15px"
+      >
+        <span class="img-name">发电机本体温度-40度</span>：
+        <img src="../../assets/img/高压给水泵本体温度/高压给水泵--40度.png" alt="" style="width: 100%" />
+      </el-row>
+    </div>
+    <div class="img-container" v-if="form.temp ==='45'">
+      <el-row
+        style="margin-bottom: 15px"
+      >
+        <span class="img-name">发电机本体温度-45度</span>：
+        <img src="../../assets/img/发电机本体温度/发电机本体温度-45度.png" alt="" style="width: 100%" />
+      </el-row>
+      <el-row
+        style="margin-bottom: 15px"
+      >
+        <span class="img-name">发电机本体温度-45度</span>：
+        <img src="../../assets/img/发电组温度/发变组-45度.png" alt="" style="width: 100%" />
+      </el-row>
+      <el-row
+        style="margin-bottom: 15px"
+      >
+        <span class="img-name">发电机本体温度-45度</span>：
+        <img src="../../assets/img/中压给水泵本体温度/中压给水泵--45度.png" alt="" style="width: 100%" />
+      </el-row>
+      <el-row
+        style="margin-bottom: 15px"
+      >
+        <span class="img-name">发电机本体温度-45度</span>：
+        <img src="../../assets/img/高压给水泵本体温度/高压给水泵--45度.png" alt="" style="width: 100%" />
       </el-row>
     </div>
   </div>
@@ -46,10 +113,9 @@ export default {
       },
       loading:false,
       tempOptionsList: [
-        { label: "35", value: "t1" },
+        { label: "35", value: "35" },
         { label: "40", value: "40" },
         { label: "45", value: "45" },
-        { label: "50", value: "50" },
       ],
 
       imgSrcList: [
